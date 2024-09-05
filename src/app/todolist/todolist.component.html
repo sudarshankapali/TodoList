@@ -1,0 +1,32 @@
+<div class="container">
+    <h1>To do application</h1>'
+    <hr>
+    <div class="mb-3">
+        <label for="framework" class="form-label" name="task">Task</label>
+        <input type="text" class="form-control" id="framework" placeholder="Enter a task" [(ngModel)]="userText">
+        <div id="errorMessage" class="form-text text-danger">Required feild</div>
+    </div>
+    <button (click)="showText()" class="btn btn-primary">Submit</button>
+    <hr>
+
+    <div class="container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Task</th>
+                    <th scope="col">Completed</th>
+                    <th scope="col">Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for(task of taskArray; track task.taskName){
+                <tr>
+                    <td>{{ task.taskName }}</td>
+                    <td><input type="checkbox" class="myCheckbox"></td>
+                    <td><button class="btn btn-danger btn-sm" (click)="onDelete($index)">Delete</button></td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
